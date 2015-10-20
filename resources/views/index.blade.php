@@ -20,22 +20,23 @@
                         <div class="signup-form">
                             <form>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Your Project">
+                                    <input class="form-control" id="project" type="text" placeholder="Your Project">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Your E-mail">
+                                    <input class="form-control" id="mail" type="text" placeholder="Your E-mail">
                                 </div>
                                 <div class="form-group">
                                     <div>
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" id="password" class="form-control" placeholder="Password">
                                     </div>
+                                    &nbsp;
                                     <div>
-                                        <input type="password" class="form-control" placeholder="Confirmation">
+                                        <input type="password" id="confirmation" class="form-control" placeholder="Confirmation">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!--<div class="form-group">
                                     <button type="submit" class="btn btn-block btn-info">Sign Up</button>
-                                </div>
+                                </div>-->
                             </form>
                         </div>
                         <div class="additional-links">
@@ -70,6 +71,7 @@
         <!-- Projects -->
         <!-- Liste table Project -->
         &nbsp; &nbsp; &nbsp; &nbsp;
+        {!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
         <div class="row" style="margin-left:5%">
             <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
@@ -88,8 +90,9 @@
                   <img src="images/demo/browser-pic-1.jpg" alt="" />
               </div>
           </div>          
-      </div>   
-
+      </div>  
+       {!!Form:close() !!} 
+{!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
       <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
                 <h3 style="color:#fff; text-align:center;">Titre du projet</h3>
@@ -108,7 +111,8 @@
               </div>
           </div>          
       </div> 
-
+      {!!Form:close() !!}
+{!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
 <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
                 <h3 style="color:#fff; text-align:center;">Titre du projet</h3>
@@ -127,8 +131,8 @@
               </div>
           </div>          
       </div> 
-
-
+{!!Form:close() !!}
+{!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
       <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
                 <h3 style="color:#fff; text-align:center;">Titre du projet</h3>
@@ -147,8 +151,8 @@
               </div>
           </div>          
       </div> 
-
-
+{!!Form:close() !!}
+{!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
       <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
                 <h3 style="color:#fff; text-align:center;">Titre du projet</h3>
@@ -167,7 +171,8 @@
               </div>
           </div>          
       </div> 
-
+{!!Form:close() !!}
+{!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
 <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
                 <h3 style="color:#fff; text-align:center;">Titre du projet</h3>
@@ -187,10 +192,26 @@
           </div>          
       </div> 
   </div>
+{!!Form:close() !!}
 
-
-
-
+@section('js')
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script>
+         var myDataRef = new Firebase('https://mtbdobklma5.firebaseio-demo.com/');
+      $('#confirmation').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#project').val();
+          var mail = $('#mail').val();
+          var password = $('#password').val();
+             //myDataRef.set('User ' + name + ' says ' + text);
+          //myDataRef.set({name: name, text: text});
+          myDataRef.push({name: name, mail: mail, password: password});
+          $('#messageInput').val('');
+        }
+      });
+      </script>
+@show
 </body>
 
 @stop

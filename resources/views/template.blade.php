@@ -12,8 +12,11 @@
         {!! Html::style('assets/css/style.css') !!}
         <link href="assets/css/demo.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/favicon.ico">
-      
-   
+        <!--FireBase bibliothèque-->
+        <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+        @yield('js')
+          <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 
     </head>
 
@@ -32,7 +35,7 @@
                                 <ul class="nav pull-left">
                                     <li class="active"><a href="#">HOME</a></li>
                                     <li><a href="#">COMPANY</a></li>
-                                    <li><a href="#">PORTFOLIO</a></li>
+                                    <li><a href="#">ABOUT US</a></li>
                                     <li><a href="#">BLOG</a></li>
                                     <li><a href="#">CONTACT</a></li>
                                 </ul>
@@ -87,6 +90,11 @@
                 </div>
             </footer>
         </div>
+
+
+ <script>
+var myDataRef = new Firebase('https://mtbdobklma5.firebaseio-demo.com/');
+    </script>
 
         <!-- Placed at the end of the document so the pages load faster -->
       <script src="common-files/js/jquery-1.10.2.min.js"></script>
