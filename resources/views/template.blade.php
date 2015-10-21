@@ -29,7 +29,7 @@
                         <div class="navbar col-sm-12" role="navigation">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle"></button>
-                                <a class="brand" href="#"><img src="img/logo@2x.png" width="50" height="50" alt=""> HOPE</a>
+                                <a class="brand" href="./"><img src="img/logo@2x.png" width="50" height="50" alt=""> HOPE</a>
                             </div>
                             <div class="collapse navbar-collapse pull-right">
                                 <ul class="nav pull-left">

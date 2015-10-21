@@ -18,26 +18,26 @@
                             You have the idea, we have the Hope. We’ve created the space that will help your startup to look even better.
                         </p>
                         <div class="signup-form">
-                            <form>
+                            {!!Form::open(['route'=> 'InscriptionController.store','method'=>'post']) !!}
                                 <div class="form-group">
-                                    <input class="form-control" id="project" type="text" placeholder="Your Project">
+                                    <input class="form-control" id="project" type="text" placeholder="Your Project" name="titre_projet">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="mail" type="text" placeholder="Your E-mail">
+                                    <input class="form-control" id="mail" type="text" placeholder="Your E-mail" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <div>
-                                        <input type="password" id="password" class="form-control" placeholder="Password">
+                                  
+                                        <input type="password" id="password" class="form-control" placeholder="Password" name="password">
                                     </div>
-                                    &nbsp;
-                                    <div>
-                                        <input type="password" id="confirmation" class="form-control" placeholder="Confirmation">
+                                   
+                                    <div class="form-group">
+                                        <input type="password" id="confirmation" class="form-control" placeholder="Confirmation" name="confirmation">
                                     </div>
-                                </div>
-                                <!--<div class="form-group">
+                                
+                                <div class="form-group">
                                     <button type="submit" class="btn btn-block btn-info">Sign Up</button>
-                                </div>-->
-                            </form>
+                                </div>
+                            {!!Form::close()!!} 
                         </div>
                         <div class="additional-links">
                             By signing up you agree to <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
@@ -91,7 +91,7 @@
               </div>
           </div>          
       </div>  
-       {!!Form:close() !!} 
+       {!!Form::close() !!} 
 {!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
       <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
@@ -111,7 +111,7 @@
               </div>
           </div>          
       </div> 
-      {!!Form:close() !!}
+      {!!Form::close() !!}
 {!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
 <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
@@ -131,7 +131,7 @@
               </div>
           </div>          
       </div> 
-{!!Form:close() !!}
+{!!Form::close() !!}
 {!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
       <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
@@ -151,7 +151,7 @@
               </div>
           </div>          
       </div> 
-{!!Form:close() !!}
+{!!Form::close() !!}
 {!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
       <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
@@ -171,7 +171,8 @@
               </div>
           </div>          
       </div> 
-{!!Form:close() !!}
+{!!Form::close() !!}
+
 {!!Form::open(['route'=> 'project.store','method'=>'post']) !!}
 <div class="col-md-9" style="width:auto;height:auto;">
               <div class="demo-browser">
@@ -192,7 +193,7 @@
           </div>          
       </div> 
   </div>
-{!!Form:close() !!}
+{!!Form::close() !!}
 
 @section('js')
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
@@ -213,5 +214,4 @@
       </script>
 @show
 </body>
-
 @stop
